@@ -9,5 +9,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(LKModule)
+platformBrowserDynamic()
+  .bootstrapModule(LKModule)
   .catch(err => console.error(err));

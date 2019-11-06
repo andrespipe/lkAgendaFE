@@ -5,10 +5,12 @@ import { LKRoutingModule } from './lk-routing.module';
 import { LKComponent } from './components/lk/lk.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiControlsModule } from './modules/ui-controls/ui-controls.module';
+import { MainPanelComponent } from './components/main-panel/main-panel.component';
 
 @NgModule({
   declarations: [
-    LKComponent
+    LKComponent,
+    MainPanelComponent
   ],
   imports: [
     BrowserModule,

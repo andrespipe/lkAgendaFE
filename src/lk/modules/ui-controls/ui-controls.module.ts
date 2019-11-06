@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
 
 const components = [
-  NavMenuComponent,
+  MainNavComponent,
 ];
 
 @NgModule({
   declarations: components,
   exports: components,
   imports: [
-    CommonModule
+    CommonModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ]
 })
 export class UiControlsModule { }
