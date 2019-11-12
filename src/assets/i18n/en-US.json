@@ -1,0 +1,9 @@
+{
+	"main-nav.app-name": "Lazy Kitten - Agenda",
+	"main-nav.menu-title": "Menu",
+	"routes.activities": "Activities",
+	"routes.agenda": "Agenda",
+	"routes.locations": "Locations",
+	"routes.reports": "Reports",
+	"routes.staff": "Staff"
+}

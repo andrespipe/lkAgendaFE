@@ -2,27 +2,38 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+      [opened]="false"
+      (openedStart)="onOpenedStart()"
+      (closedStart)="onClosedStart()">
+    <mat-toolbar>
+      <span>{{ 'main-nav.menu-title' | translate }}</span>
+    </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <ng-container *ngFor="let item of menuItems">
+        <a mat-list-item routerLink="{{item.path}}">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>&nbsp;{{ item.title | translate }}</span>
+        </a>
+      </ng-container>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>lkAgendaFE</span>
+      <ng-container *ngTemplateOutlet="toggleMenuBtn"></ng-container>
+      <span>{{ 'main-nav.app-name' | translate }}</span>
     </mat-toolbar>
-    <!-- Add Content Here -->
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<ng-template #toggleMenuBtn>
+  <button [@toggleMenu]="(isSideBarOpen | async) ? 'open' : 'close'"
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()">
+    <mat-icon aria-label="Side nav toggle icon">
+      {{ (isSideBarOpen | async) ? 'close' : 'menu' }}
+    </mat-icon>
+  </button>
+</ng-template>

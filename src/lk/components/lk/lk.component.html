@@ -1,3 +1,5 @@
-<lk-main-nav>
-  <router-outlet></router-outlet>
-</lk-main-nav>
+<ng-container *ngIf="isLanguageLoaded | async">
+  <lk-main-nav [menuItems]="routes">
+    <router-outlet></router-outlet>
+  </lk-main-nav>
+</ng-container>

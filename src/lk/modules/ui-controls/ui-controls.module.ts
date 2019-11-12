@@ -7,6 +7,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { TranslateModule } from '../translate/translate.module';
+import { RouterModule } from '@angular/router';
 
 const components = [
   MainNavComponent,
@@ -22,7 +24,9 @@ const components = [
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    RouterModule,
+    TranslateModule,
   ]
 })
 export class UiControlsModule { }
