@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgendaComponent } from './components/agenda/agenda.component';
 import { AgendaRoutingModule } from './routes/agenda-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,6 +11,7 @@ import { AgendaRoutingModule } from './routes/agenda-routing.module';
   imports: [
     AgendaRoutingModule,
     CommonModule,
+    FormsModule,
   ]
 })
 export class AgendaModule { }

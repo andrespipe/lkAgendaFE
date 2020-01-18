@@ -4,6 +4,11 @@
 
 .sidenav {
   width: 200px;
+
+  .is-active{
+    color: #673AB7;
+    font-weight: bold!important;
+  }
 }
 
 .sidenav .mat-toolbar {

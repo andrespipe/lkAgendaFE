@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/lk/services/authentication.service';
 
 @Component({
   selector: 'lk-agenda',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthenticationService) { }
+
+  sessionId;
 
   ngOnInit() {
+  }
+
+  authenticate() {
+    this.authService
+      .login({
+        email: 'animarketvet@gmail.com',
+        password: 'Animarket1019',
+      })
+      .subscribe(ans => {
+        debugger;
+        console.log({ans});
+      });
+  }
+
+  logOut() {
+    this.authService
+      .logOut(this.sessionId);
   }
 
 }
